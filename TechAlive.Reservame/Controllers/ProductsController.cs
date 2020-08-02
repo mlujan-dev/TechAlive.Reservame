@@ -38,7 +38,7 @@ namespace TechAlive.Reservame.Api.Controllers
 		{
 			_productService.Create(product);
 
-			return CreatedAtRoute("GetProduct", new { id = product.Id }, product);
+			return CreatedAtRoute("GetProduct", new { id = product.Code }, product);
 		}
 
 		[HttpPut("{id:length(24)}")]
@@ -66,7 +66,7 @@ namespace TechAlive.Reservame.Api.Controllers
 				return NotFound();
 			}
 
-			_productService.Remove(product.Id);
+			_productService.Remove(product.Code);
 
 			return NoContent();
 		}

@@ -1,5 +1,7 @@
+using System;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using Google.Cloud.Firestore;
 
 namespace TechAlive.Reservame.Api
 {
@@ -16,5 +18,6 @@ namespace TechAlive.Reservame.Api
 				{
 					webBuilder.UseStartup<Startup>();
 				});
+
 	}
 }

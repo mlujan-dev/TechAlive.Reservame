@@ -5,7 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Google.Cloud.Storage.V1" Version="3.2.0" />
     <PackageReference Include="MongoDB.Driver" Version="2.10.4" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="FirebaseAdmin" Version="1.6.0" />
+  </ItemGroup>
+  
+ <ItemGroup>
+    <PackageReference Include="Google.Cloud.Firestore" Version="2.1.0" />
   </ItemGroup>
 
 </Project>

@@ -5,11 +5,11 @@ using TechAlive.Reservame.Core.Model;
 
 namespace TechAlive.Reservame.Core.Services
 {
-	public class ClientService :IClientService
+	public class MongoMongoClientService :IMongoClientService
 	{
 		private readonly IMongoCollection<Client> _clients;
 
-		public ClientService(IDatabaseSettings settings)
+		public MongoMongoClientService(IDatabaseSettings settings)
 		{
 			var client = new MongoClient(settings.ConnectionString);
 			var database = client.GetDatabase(settings.DatabaseName);

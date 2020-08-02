@@ -2,7 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-  </PropertyGroup>
+  </PropertyGroup>  
+  
+  <ItemGroup>
+    <None Include="app.yaml" CopyToOutputDirectory="Always" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FirebaseAdmin" Version="1.6.0" />
+  </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Controllers\" />
@@ -10,6 +18,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TechAlive.Reservame.Core\TechAlive.Reservame.Core.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Google.Cloud.Firestore" Version="2.1.0" />
+    <PackageReference Include="Google.Cloud.Storage.V1" Version="3.2.0" />
   </ItemGroup>
 
 

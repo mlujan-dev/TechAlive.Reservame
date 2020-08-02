@@ -3,7 +3,7 @@ using TechAlive.Reservame.Core.Model;
 
 namespace TechAlive.Reservame.Core.Services
 {
-	public interface IClientService
+	public interface IMongoClientService
 	{
 		List<Client> Get();
 		Client Get(string id);

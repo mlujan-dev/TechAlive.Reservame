@@ -1,24 +1,23 @@
-﻿using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
+﻿using Google.Cloud.Firestore;
 
 namespace TechAlive.Reservame.Core.Model
 {
+	[FirestoreData]
 	public class Product
 	{
-		[BsonId]
-		[BsonRepresentation(BsonType.ObjectId)]
-		public string Id { get; set; }
+		//[FirestoreProperty("id")]
+		//public string Id { get; set; }
 
-		[BsonElement("Code")]
+		[FirestoreProperty]
 		public string Code { get; set; }
 
-		[BsonElement("Description")]
+		[FirestoreProperty]
 		public string Description { get; set; }
 
-		[BsonElement("ProductType")]
-		public ProductType ProductType { get; set; }
+		//[FirestoreProperty]
+		//public ProductType ProductType { get; set; }
 
-		[BsonElement("Price")]
+		[FirestoreProperty]
 		public double Price { get; set; }
 	}
 }
