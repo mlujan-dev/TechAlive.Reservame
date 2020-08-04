@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Google.Apis.Cloudresourcemanager.v1" Version="1.19.0.635" />
     <PackageReference Include="Google.Cloud.Storage.V1" Version="3.2.0" />
-    <PackageReference Include="MongoDB.Driver" Version="2.10.4" />
   </ItemGroup>
   
   <ItemGroup>
@@ -15,6 +15,10 @@
   
  <ItemGroup>
     <PackageReference Include="Google.Cloud.Firestore" Version="2.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Apis.Auth" Version="1.48.0" />
   </ItemGroup>
 
 </Project>

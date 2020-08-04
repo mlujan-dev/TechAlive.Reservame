@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using TechAlive.Reservame.Core;
 using TechAlive.Reservame.Core.Model;
+using TechAlive.Reservame.Core.Services;
 
 namespace TechAlive.Reservame.Api.Controllers
 {

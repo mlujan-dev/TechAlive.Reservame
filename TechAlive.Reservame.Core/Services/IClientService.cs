@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using TechAlive.Reservame.Core.Model;
 
-namespace TechAlive.Reservame.Core.Services
+namespace TechAlive.Reservame.Core
 {
-	public interface IMongoClientService
+	public interface IClientService
 	{
 		List<Client> Get();
 		Client Get(string id);

@@ -1,19 +1,19 @@
-﻿using System;
-using Google.Apis.Auth.OAuth2;
+﻿using Google.Apis.Auth.OAuth2;
+using Google.Apis.CloudResourceManager.v1;
 using Google.Cloud.Firestore;
 
 namespace TechAlive.Reservame.Core.DataAccess
 {
 	public class FirestoreClient
 	{
-		private const string ProjectId = "reservame-f3adc";
+		private const string ProjectId = "composite-fire-284717";
 		public FirestoreDb DataBase { get; set; }
 
 		public FirestoreClient()
 		{
-			Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", "C:/reservame-f3adc-firebase-adminsdk-btm0v-f166c8d858.json");
-			GoogleCredential.GetApplicationDefault();
+			GoogleCredential.GetApplicationDefault()
+				.CreateScoped(CloudResourceManagerService.Scope.CloudPlatform);
 			DataBase = FirestoreDb.CreateAsync(ProjectId).Result;
 		}
-	}
+    }
 }

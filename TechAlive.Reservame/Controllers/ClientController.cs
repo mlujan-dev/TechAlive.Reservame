@@ -9,21 +9,21 @@ namespace TechAlive.Reservame.Api.Controllers
 	[Route("[controller]")]
 	public class ClientsController : ControllerBase
 	{
-		private readonly MongoMongoClientService _mongoMongoClientService;
+		private readonly ClientService _clientService;
 
-		public ClientsController(MongoMongoClientService mongoMongoClientService)
+		public ClientsController(ClientService clientService)
 		{
-			_mongoMongoClientService = mongoMongoClientService;
+			_clientService = clientService;
 		}
 
 		[HttpGet]
 		public ActionResult<List<Client>> Get() =>
-			_mongoMongoClientService.Get();
+			_clientService.Get();
 
 		[HttpGet("{id:length(24)}", Name = "GetClient")]
 		public ActionResult<Client> Get(string id)
 		{
-			var product = _mongoMongoClientService.Get(id);
+			var product = _clientService.Get(id);
 
 			if (product == null)
 			{
@@ -36,7 +36,7 @@ namespace TechAlive.Reservame.Api.Controllers
 		[HttpPost]
 		public ActionResult<Client> Create(Client client)
 		{
-			_mongoMongoClientService.Create(client);
+			_clientService.Create(client);
 
 			return CreatedAtRoute("GetClient", new { id = client.Id }, client);
 		}
@@ -44,14 +44,14 @@ namespace TechAlive.Reservame.Api.Controllers
 		[HttpPut("{id:length(24)}")]
 		public IActionResult Update(string id, Client productIn)
 		{
-			var product = _mongoMongoClientService.Get(id);
+			var product = _clientService.Get(id);
 
 			if (product == null)
 			{
 				return NotFound();
 			}
 
-			_mongoMongoClientService.Update(id, productIn);
+			_clientService.Update(id, productIn);
 
 			return NoContent();
 		}
@@ -59,14 +59,14 @@ namespace TechAlive.Reservame.Api.Controllers
 		[HttpDelete("{id:length(24)}")]
 		public IActionResult Delete(string id)
 		{
-			var product = _mongoMongoClientService.Get(id);
+			var product = _clientService.Get(id);
 
 			if (product == null)
 			{
 				return NotFound();
 			}
 
-			_mongoMongoClientService.Remove(product.Id);
+			_clientService.Remove(product.Id);
 
 			return NoContent();
 		}

@@ -7,47 +7,47 @@ using TechAlive.Reservame.Core.Model;
 
 namespace TechAlive.Reservame.Core.Services
 {
-	public class ProductService : IProductService
+	public class ClientService : IClientService
 	{
-		public FirestoreClient FirestoreClient { get;  }
+		public FirestoreClient FirestoreClient { get; }
 		public CollectionReference ProductsCollection { get; set; }
 
-		public ProductService(FirestoreClient firestoreClient)
+		public ClientService(FirestoreClient firestoreClient)
 		{
 			FirestoreClient = firestoreClient;
-			ProductsCollection = firestoreClient.DataBase.Collection("Products");
+			ProductsCollection = firestoreClient.DataBase.Collection("Clients");
 		}
 
-		public List<Product> Get()
+		public List<Client> Get()
 		{
 			try
 			{
 				var querySnapshot = ProductsCollection.GetSnapshotAsync().Result;
 				var documents = querySnapshot.Documents;
-				return documents.Select(snapshot => snapshot.ConvertTo<Product>()).ToList();
+				return documents.Select(snapshot => snapshot.ConvertTo<Client>()).ToList();
 			}
 			catch (Exception ex)
 			{
-				return new List<Product>
+				return new List<Client>
 				{
-					new Product {Code = ex.Message, Description = ex.StackTrace, Price = 1000 }
+					new Client {Code = ex.Message, BusinessName = ex.StackTrace }
 				};
 			}
 		}
 
-		public Product Get(string id) =>
+		public Client Get(string id) =>
 			Get().First();
 
-		public Product Create(Product product)
+		public Client Create(Client product)
 		{
 			return Get().First();
 		}
 
-		public void Update(string id, Product productIn)
+		public void Update(string id, Client productIn)
 		{
 		}
 
-		public void Remove(Product productIn)
+		public void Remove(Client productIn)
 		{
 
 		}

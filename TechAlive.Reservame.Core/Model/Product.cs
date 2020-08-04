@@ -5,8 +5,8 @@ namespace TechAlive.Reservame.Core.Model
 	[FirestoreData]
 	public class Product
 	{
-		//[FirestoreProperty("id")]
-		//public string Id { get; set; }
+		[FirestoreProperty]
+		public string Id { get; set; }
 
 		[FirestoreProperty]
 		public string Code { get; set; }
