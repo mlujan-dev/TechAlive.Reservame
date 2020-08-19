@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using TechAlive.Reservame.Core.DataAccess;
+using TechAlive.Reservame.Core.SenderClient;
 using TechAlive.Reservame.Core.Services;
 
 namespace TechAlive.Reservame.Api
@@ -25,8 +26,10 @@ namespace TechAlive.Reservame.Api
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddSingleton<FirestoreClient>();
-			services.AddSingleton<ProductService>();
-			services.AddSingleton<ClientService>();
+			services.AddTransient<ProductService>();
+			services.AddTransient<RestaurantService>();
+			services.AddTransient<DeviceRequestService>();
+			services.AddSingleton<FirebaseNotificationClient>();
 
 			services.AddControllers();
 
@@ -53,7 +56,7 @@ namespace TechAlive.Reservame.Api
 
 			if (env.IsDevelopment())
 			{
-				Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", "../TechAlive.Reservame.Core/DataAccess/Credentials/Reservame-7a13855f48eb.json");
+				Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", "C:/Reservame-71d6a24f994a.json");
 				app.UseDeveloperExceptionPage();
 			}
 
