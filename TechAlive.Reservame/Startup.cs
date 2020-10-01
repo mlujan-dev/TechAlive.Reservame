@@ -56,7 +56,7 @@ namespace TechAlive.Reservame.Api
 
 			if (env.IsDevelopment())
 			{
-				Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", "C:/Reservame-71d6a24f994a.json");
+				Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", "C:/AppEngine-ReservameApimodified-wonder-258716-4dc35ff2f93d.json");
 				app.UseDeveloperExceptionPage();
 			}
 

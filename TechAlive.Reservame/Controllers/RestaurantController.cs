@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using TechAlive.Reservame.Core.Dto;
 using TechAlive.Reservame.Core.Model;
 using TechAlive.Reservame.Core.Services;
@@ -29,6 +32,19 @@ namespace TechAlive.Reservame.Api.Controllers
 			return clientRequest;
 		}
 
+		[HttpGet]
+		public ActionResult<List<Restaurant>> Get()
+		{
+			var clientRequest = _restaurantService.Get().Take(10).ToList();
+
+			if (clientRequest == null)
+			{
+				return NotFound();
+			}
+
+			return clientRequest;
+		}
+
 		[HttpPost]
 		public ActionResult<Restaurant> Create(RestaurantDto restaurantDto)
 		{
@@ -37,7 +53,7 @@ namespace TechAlive.Reservame.Api.Controllers
 		}
 
 		[HttpPut("{tokenId}/{restaurant}")]
-		public IActionResult Update(string tokenId, RestaurantDto restaurant)
+		public async Task<IActionResult> Update(string tokenId, RestaurantDto restaurant)
 		{
 			var clientRequest = _restaurantService.Get(tokenId);
 
@@ -46,7 +62,7 @@ namespace TechAlive.Reservame.Api.Controllers
 				return NotFound();
 			}
 
-			_restaurantService.Update(tokenId, restaurant);
+			await _restaurantService.Update(tokenId, restaurant);
 
 			return new AcceptedResult();
 		}
