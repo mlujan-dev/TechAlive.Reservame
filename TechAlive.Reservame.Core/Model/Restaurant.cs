@@ -28,6 +28,9 @@ namespace TechAlive.Reservame.Core.Model
 		public string PhoneNumber { get; set; }
 
 		[FirestoreProperty]
+		public string Category { get; set; }
+
+		[FirestoreProperty]
 		public string LogoTypeImage { get; set; }
 	}
 }

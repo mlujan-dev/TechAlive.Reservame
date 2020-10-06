@@ -6,7 +6,7 @@ namespace TechAlive.Reservame.Core.DataAccess
 {
 	public class FirestoreClient
 	{
-		private const string ProjectId = "composite-fire-284717";
+		private const string ProjectId = "modified-wonder-258716";
 		public FirestoreDb DataBase { get; set; }
 
 		public FirestoreClient()
