@@ -34,10 +34,10 @@ namespace TechAlive.Reservame.Api.Controllers
 			return clientRequest;
 		}
 
-		[HttpGet("ByRestaurant/{restaurantToken}")]
-		public ActionResult<List<ClientRequest>> GetByRestaurant(string restaurantToken)
+		[HttpGet("ByCommerce/{commerceToken}")]
+		public ActionResult<List<ClientRequest>> GetByCommerce(string commerceToken)
 		{
-			var clientRequests = _deviceRequestService.GetByRestaurant(restaurantToken);
+			var clientRequests = _deviceRequestService.GetByCommerce(commerceToken);
 			return clientRequests ?? new List<ClientRequest>();
 		}
 

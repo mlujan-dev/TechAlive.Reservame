@@ -4,7 +4,7 @@ using Google.Cloud.Firestore;
 namespace TechAlive.Reservame.Core.Model
 {
 	[FirestoreData]
-	public class Restaurant
+	public class Commerce
 	{
 		[FirestoreDocumentId]
 		public string Id { get; set; }

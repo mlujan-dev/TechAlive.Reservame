@@ -7,8 +7,8 @@ namespace TechAlive.Reservame.Core.Dto
 		[JsonProperty("device_token")]
 		public string DeviceToken { get; set; }
 
-		[JsonProperty("restaurant_token")]
-		public string RestaurantToken { get; set; }
+		[JsonProperty("commerce_token")]
+		public string CommerceToken { get; set; }
 
 		[JsonProperty("clients_quantity")]
 		public int ClientsQuantity { get; set; }

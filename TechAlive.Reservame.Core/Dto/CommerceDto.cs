@@ -3,10 +3,10 @@ using Newtonsoft.Json;
 
 namespace TechAlive.Reservame.Core.Dto
 {
-	public class RestaurantDto
+	public class CommerceDto
 	{
-		[JsonProperty("business_name")]
-		public string BusinessName { get; set; }
+		[JsonProperty("commerce_name")]
+		public string CommerceName { get; set; }
 
 		[JsonProperty("latitude")]
 		public double Latitude { get; set; }

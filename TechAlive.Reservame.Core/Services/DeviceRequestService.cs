@@ -36,9 +36,9 @@ namespace TechAlive.Reservame.Core.Services
 			return snapshot.ConvertTo<ClientRequest>();
 		}
 
-		public List<ClientRequest> GetByRestaurant(string restaurantToken)
+		public List<ClientRequest> GetByCommerce(string commerceToken)
 		{
-			var query = DeviceRequestsCollection.WhereEqualTo("RestaurantId", restaurantToken);
+			var query = DeviceRequestsCollection.WhereEqualTo("CommerceToken", commerceToken);
 			var querySnapshot = query.GetSnapshotAsync().Result;
 			var documents = querySnapshot.Documents;
 			return documents.Select(snapshot => snapshot.ConvertTo<ClientRequest>()).ToList();
@@ -46,7 +46,7 @@ namespace TechAlive.Reservame.Core.Services
 
 		public async Task<ClientRequest> Create(ClientRequestRegister request)
 		{
-			var created = await DeviceRequestsCollection.AddAsync(new ClientRequest{DeviceToken = request.DeviceToken, CreatedDateTime = DateTime.UtcNow, Status = "Created", ClientsQuantity = request.ClientsQuantity, RestaurantId = request.RestaurantToken });
+			var created = await DeviceRequestsCollection.AddAsync(new ClientRequest{DeviceToken = request.DeviceToken, CreatedDateTime = DateTime.UtcNow, Status = "Created", ClientsQuantity = request.ClientsQuantity, CommerceToken = request.CommerceToken });
 			var notificationResponse = await _notificationClient.Send(new NotificationMessage(request.DeviceToken, "Su solicitud fue recibida"));
 			//Loguear o actualizar estado de pedido
 			return Get(created.Id);

@@ -13,7 +13,7 @@ namespace TechAlive.Reservame.Core.Model
 		public string DeviceToken { get; set; }
 
 		[FirestoreProperty]
-		public string RestaurantId { get; set; }
+		public string CommerceToken { get; set; }
 
 		[FirestoreProperty]
 		public DateTime CreatedDateTime { get; set; }

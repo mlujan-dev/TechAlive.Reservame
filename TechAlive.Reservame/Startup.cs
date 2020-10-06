@@ -27,7 +27,7 @@ namespace TechAlive.Reservame.Api
 		{
 			services.AddSingleton<FirestoreClient>();
 			services.AddTransient<ProductService>();
-			services.AddTransient<RestaurantService>();
+			services.AddTransient<CommerceService>();
 			services.AddTransient<UserService>();
 			services.AddTransient<DeviceRequestService>();
 			services.AddSingleton<FirebaseNotificationClient>();

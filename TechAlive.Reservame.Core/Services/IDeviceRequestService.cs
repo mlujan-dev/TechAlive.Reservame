@@ -9,7 +9,7 @@ namespace TechAlive.Reservame.Core.Services
 	{
 		List<ClientRequest> Get();
 		ClientRequest Get(string id);
-		List<ClientRequest> GetByRestaurant(string restaurantToken);
+		List<ClientRequest> GetByCommerce(string commerceToken);
 		Task<ClientRequest> Create(ClientRequestRegister request);
 		Task<ClientRequest> Update(string id, string status);
 		void Remove(string id);
