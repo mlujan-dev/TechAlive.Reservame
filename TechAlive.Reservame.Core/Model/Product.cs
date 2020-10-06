@@ -14,8 +14,8 @@ namespace TechAlive.Reservame.Core.Model
 		[FirestoreProperty]
 		public string Description { get; set; }
 
-		//[FirestoreProperty]
-		//public ProductType ProductType { get; set; }
+		[FirestoreProperty]
+		public ProductType ProductType { get; set; }
 
 		[FirestoreProperty]
 		public double Price { get; set; }
