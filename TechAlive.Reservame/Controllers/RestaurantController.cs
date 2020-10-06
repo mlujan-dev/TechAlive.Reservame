@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using TechAlive.Reservame.Core.Dto;
 using TechAlive.Reservame.Core.Model;
 using TechAlive.Reservame.Core.Services;
@@ -35,14 +34,7 @@ namespace TechAlive.Reservame.Api.Controllers
 		[HttpGet]
 		public ActionResult<List<Restaurant>> Get()
 		{
-			var clientRequest = _restaurantService.Get().Take(10).ToList();
-
-			if (clientRequest == null)
-			{
-				return NotFound();
-			}
-
-			return clientRequest;
+			return _restaurantService.Get().Take(10).ToList();
 		}
 
 		[HttpPost]
