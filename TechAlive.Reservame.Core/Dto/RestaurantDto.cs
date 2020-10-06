@@ -25,5 +25,8 @@ namespace TechAlive.Reservame.Core.Dto
 
 		[JsonProperty("phone_number")]
 		public string PhoneNumber { get; set; }
+
+		[JsonProperty("logo_type")]
+		public string LogoTypeImage { get; set; }
 	}
 }

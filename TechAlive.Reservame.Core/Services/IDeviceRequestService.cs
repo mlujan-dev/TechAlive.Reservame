@@ -11,7 +11,7 @@ namespace TechAlive.Reservame.Core.Services
 		ClientRequest Get(string id);
 		List<ClientRequest> GetByRestaurant(string restaurantToken);
 		Task<ClientRequest> Create(ClientRequestRegister request);
-		Task Update(string id, string status);
+		Task<ClientRequest> Update(string id, string status);
 		void Remove(string id);
 	}
 }

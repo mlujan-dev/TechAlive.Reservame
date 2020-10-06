@@ -37,7 +37,7 @@ namespace TechAlive.Reservame.Api.Controllers
 		}
 
 		[HttpPut("{tokenId}/{restaurant}")]
-		public IActionResult Update(string tokenId, RestaurantDto restaurant)
+		public ActionResult<Restaurant> Update(string tokenId, RestaurantDto restaurant)
 		{
 			var clientRequest = _restaurantService.Get(tokenId);
 
@@ -46,9 +46,7 @@ namespace TechAlive.Reservame.Api.Controllers
 				return NotFound();
 			}
 
-			_restaurantService.Update(tokenId, restaurant);
-
-			return new AcceptedResult();
+			return _restaurantService.Update(tokenId, restaurant).Result;
 		}
 
 		[HttpDelete("{tokenId}")]

@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FirebaseAuthentication.net" Version="3.4.0" />
     <PackageReference Include="Google.Apis.Cloudresourcemanager.v1" Version="1.19.0.635" />
     <PackageReference Include="Google.Cloud.Storage.V1" Version="3.2.0" />
   </ItemGroup>

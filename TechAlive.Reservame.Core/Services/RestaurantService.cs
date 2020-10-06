@@ -42,13 +42,14 @@ namespace TechAlive.Reservame.Core.Services
 				Address = restaurant.Address,
 				Capacity = restaurant.Capacity,
 				MailAddress = restaurant.MailAddress,
-				PhoneNumber = restaurant.PhoneNumber
+				PhoneNumber = restaurant.PhoneNumber,
+				LogoTypeImage = restaurant.LogoTypeImage
 			});
 
 			return Get(created.Id);
 		}
 
-		public async Task Update(string tokenId, RestaurantDto restaurant)
+		public async Task<Restaurant> Update(string tokenId, RestaurantDto restaurant)
 		{
 			var docRef = RestaurantsCollection.Document(tokenId);
 			await docRef.UpdateAsync(new Dictionary<string, object>
@@ -58,11 +59,12 @@ namespace TechAlive.Reservame.Core.Services
 				{"Address", restaurant.Address},
 				{"Capacity", restaurant.Capacity},
 				{"MailAddress", restaurant.MailAddress},
-				{"PhoneNumber", restaurant.PhoneNumber}
+				{"PhoneNumber", restaurant.PhoneNumber},
+				{"LogoTypeImage", restaurant.LogoTypeImage}
 			});
 
 			var snapshot = docRef.GetSnapshotAsync().Result;
-			var clientRequest = snapshot.ConvertTo<Restaurant>();
+			return snapshot.ConvertTo<Restaurant>();
 		}
 
 		public void Remove(Restaurant restaurant)

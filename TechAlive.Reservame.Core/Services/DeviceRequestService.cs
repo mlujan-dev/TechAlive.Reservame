@@ -52,7 +52,7 @@ namespace TechAlive.Reservame.Core.Services
 			return Get(created.Id);
 		}
 
-		public async Task Update(string id, string status)
+		public async Task<ClientRequest> Update(string id, string status)
 		{
 			var docRef = DeviceRequestsCollection.Document(id);
 			await docRef.UpdateAsync(new Dictionary<string, object> { { "Status",status} });
@@ -61,6 +61,8 @@ namespace TechAlive.Reservame.Core.Services
 			var clientRequest = snapshot.ConvertTo<ClientRequest>();
 
 			await _notificationClient.Send(new NotificationMessage(clientRequest.DeviceToken, clientRequest.Status));
+
+			return clientRequest;
 		}
 
 		public void Remove(string id)

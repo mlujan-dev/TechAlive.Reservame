@@ -5,13 +5,13 @@ using TechAlive.Reservame.Core.Model;
 
 namespace TechAlive.Reservame.Core.Services
 {
-	public interface IRestaurantService
+	public interface IUserService
 	{
-		List<Restaurant> Get();
-		Restaurant Get(string tokenId);
-		Task<Restaurant> Register(RestaurantDto restaurant);
-		Task Update(string tokenId, RestaurantDto restaurant);
-		void Remove(Restaurant restaurant);
+		List<User> Get();
+		User Get(string tokenId);
+		Task<User> Register(UserDto userDto);
+		Task<User> Update(string tokenId, UserDto userDto);
+		void Remove(User user);
 		void Remove(string tokenId);
 	}
 }

@@ -38,24 +38,17 @@ namespace TechAlive.Reservame.Api.Controllers
 		public ActionResult<List<ClientRequest>> GetByRestaurant(string restaurantToken)
 		{
 			var clientRequests = _deviceRequestService.GetByRestaurant(restaurantToken);
-
-			if (clientRequests == null)
-			{
-				return NotFound();
-			}
-
-			return clientRequests;
+			return clientRequests ?? new List<ClientRequest>();
 		}
 
 		[HttpPost]
 		public ActionResult<ClientRequest> Register(ClientRequestRegister clientRequestRegister)
 		{
-			var clientRequest = _deviceRequestService.Create(clientRequestRegister).Result;
-			return new ActionResult<ClientRequest>(clientRequest);
+			return _deviceRequestService.Create(clientRequestRegister).Result;
 		}
 
 		[HttpPut("{id}/{status}")]
-		public IActionResult UpdateStatus(string id, string status)
+		public ActionResult<ClientRequest> UpdateStatus(string id, string status)
 		{
 			var clientRequest = _deviceRequestService.Get(id);
 
@@ -64,9 +57,7 @@ namespace TechAlive.Reservame.Api.Controllers
 				return NotFound();
 			}
 
-			_deviceRequestService.Update(id, status);
-
-			return new AcceptedResult();
+			return _deviceRequestService.Update(id, status).Result;
 		}
 
 		[HttpDelete("{id}")]
